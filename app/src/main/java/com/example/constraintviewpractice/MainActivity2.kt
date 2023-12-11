@@ -1,8 +1,11 @@
 package com.example.constraintviewpractice
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,7 +130,26 @@ class MainActivity2 : AppCompatActivity() {
             "No book for you this week"
         }
 
-        bookTitleView.setText("This week book name is "+selectedBook)
+        bookTitleView.setText("""This week 
+            |Book name is 
+            |$selectedBook """.trimMargin())
+
+        val shareButton:Button = findViewById(R.id.shareButton)
+
+        shareButton.setOnClickListener(){
+            val intent = Intent(Intent.ACTION_SEND)
+            intent. putExtra(Intent.EXTRA_TEXT, "Check out this book: $selectedBook")
+            intent.type = "text/plain"
+
+            if (intent.resolveActivity(packageManager) != null) {
+                // Start the activity if there's an app available
+                startActivity(Intent.createChooser(intent, "Share via"));
+            } else {
+                // Handle the case where no app can handle the intent
+                Toast.makeText(this, "No app found to handle this action", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     }}
 

@@ -10,13 +10,25 @@
         android:id="@+id/titleBookView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book Name here.."
         android:padding="20sp"
-        android:textStyle="bold"
-        android:textSize="20dp"
+        android:text="Book Name here.."
         android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
+        android:text="Share it"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBookView"
+        app:layout_constraintVertical_bias="0.005" />
 </androidx.constraintlayout.widget.ConstraintLayout>
